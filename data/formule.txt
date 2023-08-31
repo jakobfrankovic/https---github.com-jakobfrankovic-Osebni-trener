@@ -1,0 +1,35 @@
+Kalorije: 2000
+
+magnesium_mg: 400mg
+
+vitamin_a_IU: 3.000IU 
+
+vitamin_b12_mcg: 2.4 mcg
+
+vitamin_b6_mg: 1.7mg
+
+vitamin_c_mg: 90mg 
+
+vitamin_d_IU: 600IU
+
+vitamin_e_mg: 15mg
+
+vitamin_k_mcg: 120mcg
+
+calcium_mg: 1000mg 
+
+protein_g: 56g
+
+carbohydrate_g: 300g
+
+fiber_g: 35g
+
+sodium_mg: 500mg
+
+iron_mg: 8.7mg
+
+potassium_mg: 2000mg
+
+zink_mg: 11mg
+
+water_g: 2000g

@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+/* Form styles */
+
+body {
+    background-image: url("../img/test.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: -160px center; /* added position property */
+  }
+.pure-form {
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--primary-color-light);
+    padding: 20px;
+    position: relative; /* added position property */
+    right: -10px; /* added right property */
+    top: 100px; /* added top property */
+  }
+  
+  .pure-form legend {
+    color: var(--text-color);
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .pure-form label {
+    color: var(--text-color);
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .pure-form input[type="text"],
+  .pure-form input[type="email"],
+  .pure-form select {
+    border-width: thin;
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .pure-form input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .pure-form button[type="submit"] {
+    border-radius: 15px;
+    background-color: #7da7f7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: background-color 0.3s;
+  }
+  
+  .pure-form button[type="submit"]:hover {
+    background-color: #377dfd;
+  }
+
+  .chart-container {
+    position: absolute;
+    top: 200px;
+    right: -370px;
+    width: 75%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  .chart {
+    width: 50%;
+    height: 100%;
+  }
+/* selection */
+.section {
+  align-items: center;
+}
+
+.blablabla {
+  align-items: center;
+  overflow-y: auto;
+  max-height: 300px;
+}
+.row span {
+    margin-right: 10px;
+    background-color: #0059ff;
+}
+.myButton{
+    background-color: var(--primary-color);
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    float:right;
+    margin:0px;
+}
+.myButton:hover{
+  background-color: var(--primary-color-light);
+}
+.new-items {
+  margin-top:10px;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--sidebar-color);
+  border-width: thin;
+}
+

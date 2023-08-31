@@ -1,0 +1,72 @@
+% rebase('base.html')
+<style>
+    .body{
+        margin-left: 30px;
+    }
+
+    .title_card{
+        height: 90%;
+        overflow-x: 10px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 90%;
+      margin-left: auto;
+       margin-right: auto;
+       margin-top: 50px;
+    overflow: auto;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      color: var(--text-color)
+    
+    }
+    p{
+        color: var(--text-color)
+    }
+    tr:hover {background-color: var(--);}
+
+    </style><script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+    </head>
+
+    <body>
+    <div class = "title_card">
+        <h2>Vitamini</h2>
+        
+        <p>Vsi vitamini, ki si jih zaužil danes</p>
+        
+        <table class="sortable">
+        <tr>
+            <th>Hrana</th>
+            <th>Količina</th>
+            <th>Vitamin A</th>
+            <th>Vitamin B12</th>
+            <th>Vitamin B6</th>
+            <th>Vitamin C</th>
+            <th>Vitamin D</th>
+            <th>vitamin E</th>
+            <th>vitamin K</th>
+        </tr>
+        % for x in data:
+        <tr class ="item">
+            <td>{{x[0]}} </td>
+            <td>{{x[1]}} g</td>
+            <td>{{x[2]}} IU</td>
+            <td>{{x[3]}} mcg</td>
+            <td>{{x[4]}} mg</td>
+            <td>{{x[5]}} mg</td>
+            <td>{{x[6]}} IU</td>
+            <td>{{x[7]}} mg</td>
+            <td>{{x[8]}} mcg</td>
+        </tr>
+        % end
+        </tr>
+        </table>
+    </body>
+    </html>
+
+
+

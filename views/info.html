@@ -1,0 +1,101 @@
+% rebase('base.html')
+<!-- Import custom CSS file -->
+<link rel="stylesheet" href="../static/css/style_pages.css">
+<style>
+    .containnn {
+        display: block;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color-light);
+        border-radius: 2%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 90%;
+        margin: auto;
+        padding: 5%;
+        text-align: center;
+    }
+    .dropbtn {
+      background-color: var(--butty);
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+    }
+    
+    .dropdown {
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      overflow-y: scroll;
+      max-height: 300px;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-content a:hover {background-color: #ddd;}
+    
+    .dropdown:hover .dropdown-content {display: block;}
+    
+    .dropdown:hover .dropbtn {background-color: lightblue}
+</style>
+
+  
+<div class="containnn">
+  <section>
+    <h1>Skupen čas telovadbe:</h1>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Začetek vaše poti osebnega trenerja</th>
+                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Čas</th>
+            </tr>
+        </thead>
+        <tbody>
+            %for datum, cas in data[0]:
+                <tr>
+                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{datum[:-9]}}</td>
+                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{cas}}</td>
+                </tr>
+            %end
+        </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h1>Čas telovadbe po aktivnosti:</h1>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ime aktivnosti</th>
+                <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Čas</th>
+            </tr>
+        </thead>
+        <tbody>
+            %for ime, cas in data[1]:
+                <tr>
+                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{ime}}</td>
+                    <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">{{cas}}</td>
+                </tr>
+            %end
+        </tbody>
+    </table>
+
+    <h1>Povprečno počutje:</h1>
+    <p style="font-size: 36px; font-weight: bold;">{{round(data[2][0][0], 1)}}</p>
+</section>
+
+</div>
+

@@ -1,0 +1,193 @@
+% rebase('base.html')
+<!--% rebase('base.html')-->
+<!-- slices: { 0: { color: '#0077c8' }, 1: { color: '#e6e6e6' } },-->
+
+<style>
+    /* Generic styles */
+    .title_card {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .column {
+        flex: 1;
+    }
+    .card {
+        margin: 10px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .chart-container {
+        width: 150px;
+        height: 150px;
+    }
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .row {
+            flex-direction: column;
+            align-items: center;
+        }
+        .column {
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+
+
+<script type="">
+</script>
+<script type="text/javascript">
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawGraph);
+    function drawChart(total, pdv) {
+        var options = {
+            pieSliceText: "none",
+            pieHole: 0.4,
+            slices: { 0: { color: '#0077c8' }, 1: { color: '#e6e6e6' } },
+            colors: ['#0077c8', '#e6e6e6'],
+            backgroundColor: 'transparent',
+            legend: 'none',
+        };
+        function drawChart(containerId, data, options) {
+            var chart = new google.visualization.PieChart(document.getElementById(containerId));
+            chart.draw(data, options);
+        }
+        % for vitamin, dataDict in vitamin_totals.items():
+            var data = google.visualization.arrayToDataTable([
+                ['Vitamini', 'PDV'],
+                ["{{vitamin}}", {{dataDict['total']}}], // pdv
+                ["{{vitamin}} PDV", {{0 if dataDict['total'] - dataDict['pdv'] > 0 else dataDict['pdv']}}], // total
+            ]);
+            drawChart("{{vitamin}}", data, options);
+        %end
+        % for mineral, dataDict in mineral_totals.items():
+            var data = google.visualization.arrayToDataTable([
+                ['Minerali', 'PDV %'],
+                ["{{mineral}}", {{dataDict['total']}}], // pdv
+                ["{{mineral}} PDV", {{0 if dataDict['total'] - dataDict['pdv'] > 0 else dataDict['pdv']}}], // total
+            ]);
+            drawChart("{{mineral}}", data, options);
+        %end
+    }
+    function drawGraph() {
+            var data = google.visualization.arrayToDataTable([
+                ['Hranila', 'Zaužita vrednost', 'PDV'],
+                ['Vlaknine', {{ other_totals['fiber_g']['total']  }}, {{ other_totals['fiber_g']['pdv']  }}],
+                ['Ogljikovi hidrati', {{ other_totals['carbohydrate_g']['total']  }}, {{ other_totals['carbohydrate_g']['pdv']  }}],
+                ['Proteini', {{ other_totals['protein_g']['total']  }}, {{ other_totals['protein_g']['pdv']  }}],
+            ]);
+        var options = {
+            colors: ['#0077c8', '#ADD8E6'],
+            hAxis: {
+                format: '###g'
+            }
+        };
+        var chart = new google.visualization.BarChart(document.getElementById('myGraph'));
+        chart.draw(data, options);
+}
+</script>
+<div class = "title_card" style ="height:200px">
+        <div class="neki">
+            <span class = "sameline">
+                <h3 style="margin-right:10px;"> Zaužite kalorije:</h3>
+                <h2>{{ int(other_totals['calories']['total'])}} </h2>
+                <h3 style="margin-right:30px;">kcal</h3>
+                <h3 style="margin-right:10px;">Potrebne kalorije: </h3>
+                <h2>{{ int(other_totals['calories']['pdv']) }} </h2>
+                <h3>kcal</h3>
+            </span>
+        </div>
+</div>
+
+<div class = "title_card">
+    <a href="vitamins" style="text-decoration: none;"><h1>Vitamini</h1></a>
+    <h3>Danes ste zaužili</h3>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <div id="vitamin_a_IU" style="width: 150px; height: 150px;"></div>
+                <h1>Vitamin A</h1>
+                <h2 style = "color: burlywood">{{ int(vitamin_totals['vitamin_a_IU']['total'] / vitamin_totals['vitamin_a_IU']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="vitamin_b6_mg" style="width: 150px; height: 150px;"></div>
+                <h1>Vitamin B6</h1>
+                <h2 style = "color: burlywood">{{ int(vitamin_totals['vitamin_b6_mg']['total'] / vitamin_totals['vitamin_b6_mg']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="vitamin_b12_mcg" style="width: 150px; height: 150px;"></div>
+                <h1>Vitamin B12</h1>
+                <h2 style = "color: burlywood">{{ int(vitamin_totals['vitamin_b12_mcg']['total'] / vitamin_totals['vitamin_b12_mcg']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="vitamin_c_mg" style="width: 150px; height: 150px;"></div>
+                <h1>Vitamin C</h1>
+                <h2 style = "color: burlywood">{{ int(vitamin_totals['vitamin_c_mg']['total'] / vitamin_totals['vitamin_c_mg']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="vitamin_d_IU" style="width: 150px; height: 150px;"></div>
+                <h1>Vitamin D</h1>
+                <h2 style = "color: burlywood">{{ int(vitamin_totals['vitamin_d_IU']['total'] / vitamin_totals['vitamin_d_IU']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="vitamin_e_mg" style="width: 150px; height: 150px;"></div>
+                <h1>Vitamin E</h1>
+                <h2 style = "color: burlywood">{{ int(vitamin_totals['vitamin_e_mg']['total'] / vitamin_totals['vitamin_e_mg']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="vitamin_k_mcg" style="width: 150px; height: 150px;"></div>
+                <h1>Vitamin K</h1>
+                <h2 style = "color: burlywood">{{ int(vitamin_totals['vitamin_k_mcg']['total'] / vitamin_totals['vitamin_k_mcg']['pdv'] * 100) }} %</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class = "title_card">
+    <a href="minerals" style="text-decoration: none;"><h1>Minerali</h1></a>
+    <h3>Danes ste zaužili</h3>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <div id="magnesium_mg" style="width: 150px; height: 150px;"></div>
+                <h1>Magnezij</h1>
+                <h2 style = "color: burlywood">{{ int(mineral_totals['magnesium_mg']['total'] / mineral_totals['magnesium_mg']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="calcium_mg" style="width: 150px; height: 150px;"></div>
+                <h1>Kalcij</h1>
+                <h2 style = "color: burlywood">{{ int(mineral_totals['calcium_mg']['total'] / mineral_totals['calcium_mg']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="iron_mg" style="width: 150px; height: 150px;"></div>
+                <h1>Železo</h1>
+                <h2 style = "color: burlywood">{{ int(mineral_totals['iron_mg']['total'] / mineral_totals['iron_mg']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="potassium_mg" style="width: 150px; height: 150px;"></div>
+                <h1>Kalij</h1>
+                <h2 style = "color: burlywood">{{ int(mineral_totals['potassium_mg']['total'] / mineral_totals['potassium_mg']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="zink_mg" style="width: 150px; height: 150px;"></div>
+                <h1>Cink</h1>
+                <h2 style = "color: burlywood">{{ int(mineral_totals['zink_mg']['total'] / mineral_totals['zink_mg']['pdv'] * 100) }} %</h2>
+            </div>
+            <div class="card">
+                <div id="sodium_mg" style="width: 150px; height: 150px;"></div>
+                <h1>Natrij</h1>
+                <h2 style = "color: burlywood">{{ int(mineral_totals['sodium_mg']['total'] / mineral_totals['sodium_mg']['pdv'] * 100) }} %</h2>
+            </div>
+        </div>
+    </div>
+</div>

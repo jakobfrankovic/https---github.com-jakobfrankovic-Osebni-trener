@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/signup.css">
+    <title>Login</title>
+    <script>
+    function verifyPassword() {  
+    var pw = document.getElementById("password").value;  
+    var cpw = document.getElementById("confirm_password").value;  
+        //check if passwords match 
+        if(pw !== cpw) {  
+            document.getElementById("message").innerHTML = "**Passwords do not match";  
+            return false;  
+        }  
+        return true 
+    } 
+</script>  
+<style>
+    body{
+        background-color: #87CEFA; /* light blue color code */
+    }
+    </style>
+    
+</head>
+<body>
+      
+    <div class="center">
+        <h1>Signup</h1>
+        <form method="POST" action="/signup" onsubmit="return verifyPassword() && isInt('height_message') && isInt('weight_message')">
+            <div class="txt_field">
+                <input type="text" name="ime" required>
+                <span></span>
+                <label>Ime</label>
+            </div>
+            <div class="txt_field">
+                <input type="surname" name = "priimek" required>
+                <span></span>
+                <label>Priimek</label>
+            </div>
+            <div class="field">
+                <label class="sex">Spol</label>
+                <input type="radio" value="male" name = "spol" required> Moški
+                <input type="radio" value="female" name = "spol" required> Ženska
+                <input type="radio" value="other" name = "spol" required> Drugo
+            </div>
+            <div class="txt_field">
+                <input type="date" name = "datum_rojstva" required>
+                <span></span>
+                <label>Datum rojstva</label>
+            </div>
+            <div class="txt_field">
+              <input type="height" type = "number" id = "height" name = "visina" required>
+              <span></span>
+              <label>Visina (cm)</label>
+            </div>
+            <div class="txt_field">
+              <input type="weight" type = "number" id = "weight" name = "teza" required>
+              <span></span>
+              <label>Teza (kg)</label>
+            </div>
+            <div class="txt_field">
+                <input type="email" name = "mail" required>
+                <span></span>
+                <label>Email</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" id = "password" name = "geslo" required>
+                <span></span>
+                <label>Geslo</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" id = "confirm_password" required>
+                <span></span>
+                <label>Potrdi geslo</label>
+            </div>
+            <div id="password_error" class="error_message">Passwords do not match</div>
+            <span id = "message" style="color:red"> </span> <br><br>
+            <input type="submit" value = "signup">
+        </form>
+    </div>
+
+</body>
+</html>

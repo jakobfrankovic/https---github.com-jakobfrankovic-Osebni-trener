@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <title>Login</title>
+</head>
+<style>
+    body{
+        background-color: #87CEFA; /* light blue color code */
+    }
+    </style>
+<body>
+    
+    <div class="center">
+        <h1>Login</h1>
+        <form method="POST" action ="\login">
+            <div class="txt_field">
+                <input type="text" name = "mail" required>
+                <span></span>
+                <label>Elektronski naslov</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name = "geslo" required>
+                <span></span>
+                <label>Geslo</label>
+            </div>
+            <div class="pass">Pozabljeno geslo?</div>
+            <input type="submit" value = "Login">
+            <div class = "signup_link">
+                Ali še niste član? <a href ="/signup">Registriraj me</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

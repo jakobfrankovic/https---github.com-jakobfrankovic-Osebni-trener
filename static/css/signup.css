@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: poppins, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25rem;
+    background: white;
+    border-radius: 0.625rem;
+}
+
+.center h1{
+    text-align: center;
+    padding: 0 0 1.25rem 0;
+    border-bottom: 0.063rem solid silver;
+}
+
+.center form{
+    padding: 0 2.5rem;
+    box-sizing: border-box;
+}
+
+form .txt_field{
+    position: relative;
+    border-bottom: 0.125rem solid #adadad;
+    margin: 1.875rem 0;
+}
+
+.txt_field input{
+    width: 100%;
+    padding: 0 0.313rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+form .txt_field label{
+    position: absolute;
+    top: 50%;
+    left: 0.313rem;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: 300ms;
+}
+
+.txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 2.5rem;
+    left: 0rem;
+    width: 100%;
+    height: 0.125rem;
+    background: #2691d9;
+    transition: 300ms;
+}
+
+.txt_field input:focus ~ label{
+    top: -0.313rem;
+    color: #2691d9;
+}
+.txt_field input:valid ~ label{
+    top: -0.313rem;
+    color: #2691d9;
+}
+.txt_field input:active ~ label{
+    top: -0.313rem;
+    color: #2691d9;
+}
+
+.pass{
+    margin: -0.313rem 0 1.25rem 0.313rem;
+    color: #a6a6a6;
+    cursor: pointer;
+}
+
+.pass:hover{
+    text-decoration: underline;
+}
+
+input[type="submit"]{
+    width: 100%;
+    height: 3.125rem;
+    border: 0.063rem solid;
+    background: #2691d9;
+    border-radius: 1.563rem;
+    font-size: 1.125rem;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+form .txt_field input[type="radio"] {
+    font-size: 0.75em;
+    color: blue;
+  }
+  
+  
+form .txt_field input[type="radio"]:checked::before {
+    background-color: blue;
+  }
+  
+
+input[type="submit"]:hover{
+    border-color: #2691d9;
+    transition: 300ms;
+}
+.error_message {
+    display: none;
+    background-color: red;
+    border: 1px solid red;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.5rem;
+  }

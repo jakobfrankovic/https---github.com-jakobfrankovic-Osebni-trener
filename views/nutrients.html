@@ -1,0 +1,69 @@
+% rebase('base.html')
+<style>
+    .body{
+        margin-left: 30px;
+    }
+
+    .title_card{
+        height: 90%;
+        overflow-x: 10px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 90%;
+      margin-left: auto;
+       margin-right: auto;
+       margin-top: 50px;
+    overflow: auto;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      color: var(--text-color)
+    
+    }
+    p{
+        color: var(--text-color)
+    }
+    tr:hover {background-color: var(--);}
+    </style>
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
+<body>
+    
+        <div class = "title_card">
+            <h2>Minerali</h2>
+            <p>Vsi minerali, ki si jih zaužil danes</p>
+            <table class="sortable">
+        <tr>
+            <th>Hrana </th>
+            <th>Količina </th>
+            <th>Natrij </th>
+            <th>Železo </th>
+            <th>Kalij </th>
+            <th>Cink </th>
+            <th>Magnezij </th>
+            <th>Kalcij </th>
+        </tr>
+        % for x in data:
+        <tr class ="item">
+            <td>{{x[0]}} </td>
+            <td>{{x[1]}} g</td>
+            <td>{{x[2]}} mg</td>
+            <td>{{x[3]}} mg</td>
+            <td>{{x[4]}} mg</td>
+            <td>{{x[5]}} mg</td>
+            <td>{{x[6]}} mg</td>
+            <td>{{x[7]}} mg</td>
+        </tr>
+        % end
+        </tr>
+        </table>
+    </body>
+    </html>
+
+
+
+
