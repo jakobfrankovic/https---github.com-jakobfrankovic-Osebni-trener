@@ -174,6 +174,7 @@ def get_info_vse_aktivnosti():
     if len(cas_telovadbe1) == 0:
         cas_telovadbe1 = [('vpišite podatke pod akti', 'vpišite podatke pod Aktivnost')]
         cas_telovadbe2 = [('vpišite podatke pod Aktivnost', 'vpišite podatke pod Aktivnost')]
+    if povp_pocutje[0][0] == None:     
         povp_pocutje = [(0.0, 0)]
     
     return bottle.template("info.html", data = [cas_telovadbe1, cas_telovadbe2, povp_pocutje])
