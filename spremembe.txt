@@ -1,0 +1,4 @@
+﻿Spremembe po oddani seminarski nalogi:
+
+-11.9 dodan tekstovni vmesnik
+-24.9 dodan ER diagram
